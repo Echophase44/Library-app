@@ -10,8 +10,17 @@
 <body>
   <header>Your Collection</header>
     <div class="btnContainer">
-      <button id="addBook">+ Book</button>
+      <button id="addBook">Add Book</button>
     </div>
-  
+  <div id="popup">
+    <form id="popupContent" action="./script.js">
+      <legend>New Book</legend>
+      <div>
+        <p><input type="text" id="title" name="title" placeholder="Title"></p>
+        <p><input type="text" id="author" name="author" placeholder="Author"></p>
+        <p><input type="text" id="pages" name="pages" placeholder="Pages"></p>
+      </div>
+    </form>
+  </div>
 </body>
 </html>
