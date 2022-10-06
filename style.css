@@ -5,11 +5,20 @@
   font-family: "Poppins", sans-serif;
 }
 
+body{
+  background-color: #dddd;
+}
+
+section{
+  background-color: bisque;
+  padding-bottom: 15px;
+}
+
 header{
   display: flex;
   justify-content: center;
   font-size: 50px;
-  margin: 25px 0px;
+  padding: 25px 0px;
 }
 
 .btnContainer{
@@ -23,6 +32,8 @@ header{
   padding: 3px 15px;
 }
 
+/* ######################### Popup #################### */
+
 #popup{
   display: ;
   position: fixed;
@@ -31,11 +42,49 @@ header{
   top: 0;
   width: 100%; 
   height: 100%;
+  font-size: 24px;
 }
 
 #popupContent{
   margin: 15% auto;
   width: 20%;
   border: 1px solid black;
+  border-radius: 5px;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: bisque;
+}
+
+.popupHeader{
+  display: flex;
+  justify-content: space-between;
+}
+
+.formClose{
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: -10px;
+}
+
+.formInfo{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+input#title, input#author, input#pages{
+  height: 28px;
+  width: 200px;
+  font-size: 20px;
+  border: 1px #fff solid;
+  border-radius: 3px;
+}
+
+input#title:focus, input#author:focus, input#pages:focus{
+  outline-style: none;
+  border: 1px rgb(151, 151, 151) solid;
+  border-radius: 3px;
 }
