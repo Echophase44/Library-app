@@ -9,7 +9,7 @@ body{
   background-color: #dddd;
 }
 
-section{
+#topBanner{
   background-color: bisque;
   padding-bottom: 15px;
   border-bottom: 1px solid black;
@@ -109,4 +109,13 @@ input#title:focus, input#author:focus, input#pages:focus{
 
 #addBtn{
   font-size: 24px;
+}
+
+/* ######################### Library Section #################### */
+
+#libraryContainer{
+  background-color: #dddd;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
