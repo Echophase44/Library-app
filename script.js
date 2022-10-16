@@ -25,7 +25,7 @@ addBtn.addEventListener("click", () => {
   addBookToLibrary();
   closePopup();
   console.log(myLibrary);
-  displayLibrary();
+  renderLibrary();
   formContent.reset();
 });
 
@@ -52,12 +52,58 @@ function addBookToLibrary() {
   myLibrary.push(newBook);
 }
 
-// ######################### Create Visual Books #########################
+// ######################### Create/Render Books #########################
 
-function displayLibrary() {
+function renderLibrary() {
+  const container = document.querySelector("#libraryContainer");
+  const books = document.querySelectorAll(".libraryBook");
+  books.forEach((book) => container.removeChild(book));
+
+  for (let i = 0; i < myLibrary.length; i++) {
+    createBook(myLibrary[i]);
+    console.log(myLibrary);
+  }
+}
+
+function createBook(item) {
   const library = document.querySelector("#libraryContainer");
   const libraryBook = document.createElement("div");
+  const titleInfo = document.createElement("div");
+  const authorInfo = document.createElement("div");
+  const pageInfo = document.createElement("div");
+  const readInfo = document.createElement("button");
 
   libraryBook.classList.add("libraryBook");
   library.appendChild(libraryBook);
+
+  titleInfo.textContent = item._title;
+  titleInfo.classList.add("titleInfo");
+  libraryBook.appendChild(titleInfo);
+
+  authorInfo.textContent = item._author;
+  authorInfo.classList.add("authorInfo");
+  libraryBook.appendChild(authorInfo);
+
+  pageInfo.textContent = item._pages;
+  pageInfo.classList.add("pageInfo");
+  libraryBook.appendChild(pageInfo);
+
+  readInfo.classList.add("readBtn");
+  libraryBook.appendChild(readInfo);
+  if (item._read === false) {
+    readInfo.textContent = "Not Read";
+    libraryBook.style.backgroundColor = "#c48a8a";
+  } else {
+    readInfo.textContent = "Read";
+    libraryBook.style.backgroundColor = "rgb(172, 207, 172)";
+  }
+
+  readInfo.addEventListener("click", () => {
+    if (item._read === true) {
+      item._read = false;
+    } else {
+      item._read = true;
+    }
+    renderLibrary();
+  });
 }
