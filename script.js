@@ -11,12 +11,6 @@ formClose.addEventListener("click", () => {
   closePopup();
 });
 
-addBtn.addEventListener("click", () => {
-  addBookToLibrary();
-  closePopup();
-  console.log(myLibrary);
-});
-
 function openPopup() {
   popup.style.display = "block";
   popup.classList.add("addBlur");
@@ -27,20 +21,43 @@ function closePopup() {
   popup.classList.remove("addBlur");
 }
 
+addBtn.addEventListener("click", () => {
+  addBookToLibrary();
+  closePopup();
+  console.log(myLibrary);
+  displayLibrary();
+  formContent.reset();
+});
+
 // ######################### Constructor #########################
 
 let myLibrary = [];
 
 class Book {
   constructor(title, author, pages, read) {
-    this._title = formContent.title.value;
-    this._author = formContent.author.value;
-    this._pages = formContent.pages.value;
-    this._read = formContent.read.value;
+    this._title = title;
+    this._author = author;
+    this._pages = pages;
+    this._read = read;
   }
 }
 
 function addBookToLibrary() {
-  newBook = new Book(title, author, pages, read);
+  newBook = new Book(
+    formContent.title.value,
+    formContent.author.value,
+    formContent.pages.value,
+    formContent.read.checked
+  );
   myLibrary.push(newBook);
+}
+
+// ######################### Create Visual Books #########################
+
+function displayLibrary() {
+  const library = document.querySelector("#libraryContainer");
+  const libraryBook = document.createElement("div");
+
+  libraryBook.classList.add("libraryBook");
+  library.appendChild(libraryBook);
 }

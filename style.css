@@ -119,3 +119,9 @@ input#title:focus, input#author:focus, input#pages:focus{
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+.libraryBook{
+  height: 100px;
+  width: 100px;
+  background-color: black;
+}
