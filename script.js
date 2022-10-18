@@ -39,6 +39,7 @@ class Book {
     this._author = author;
     this._pages = pages;
     this._read = read;
+    this._bookId = myLibrary.length;
   }
 }
 
@@ -61,7 +62,6 @@ function renderLibrary() {
 
   for (let i = 0; i < myLibrary.length; i++) {
     createBook(myLibrary[i]);
-    console.log(myLibrary);
   }
 }
 
@@ -72,6 +72,7 @@ function createBook(item) {
   const authorInfo = document.createElement("div");
   const pageInfo = document.createElement("div");
   const readInfo = document.createElement("button");
+  const deleteBook = document.createElement("button");
 
   libraryBook.classList.add("libraryBook");
   library.appendChild(libraryBook);
@@ -99,11 +100,24 @@ function createBook(item) {
   }
 
   readInfo.addEventListener("click", () => {
-    if (item._read === true) {
-      item._read = false;
-    } else {
-      item._read = true;
-    }
+    item._read === true ? (item._read = false) : (item._read = true);
+    renderLibrary();
+  });
+
+  deleteBook.textContent = "Delete";
+  deleteBook.value = item._bookId;
+  deleteBook.classList.add("deleteBook");
+  libraryBook.appendChild(deleteBook);
+
+  deleteBook.addEventListener("click", () => {
+    myLibrary = myLibrary.map(element => {
+      if(element._bookId === )
+    });
+
+    // myLibrary.splice(parseInt(deleteBook.value), 1);
+    // console.log(parseInt(deleteBook.value));
+
+    console.log(myLibrary);
     renderLibrary();
   });
 }
