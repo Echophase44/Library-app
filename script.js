@@ -24,7 +24,6 @@ function closePopup() {
 addBtn.addEventListener("click", () => {
   addBookToLibrary();
   closePopup();
-  console.log(myLibrary);
   renderLibrary();
   formContent.reset();
 });
@@ -85,7 +84,7 @@ function createBook(item) {
   authorInfo.classList.add("authorInfo");
   libraryBook.appendChild(authorInfo);
 
-  pageInfo.textContent = item._pages;
+  pageInfo.textContent = "Pages: " + item._pages;
   pageInfo.classList.add("pageInfo");
   libraryBook.appendChild(pageInfo);
 
@@ -110,14 +109,14 @@ function createBook(item) {
   libraryBook.appendChild(deleteBook);
 
   deleteBook.addEventListener("click", () => {
-    myLibrary = myLibrary.map(element => {
-      if(element._bookId === )
+    let newLibrary = [];
+    myLibrary.forEach((element) => {
+      if (element._bookId !== parseInt(deleteBook.value)) {
+        newLibrary.push(element);
+      }
+      myLibrary = newLibrary;
     });
 
-    // myLibrary.splice(parseInt(deleteBook.value), 1);
-    // console.log(parseInt(deleteBook.value));
-
-    console.log(myLibrary);
     renderLibrary();
   });
 }

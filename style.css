@@ -131,8 +131,16 @@ input#title:focus, input#author:focus, input#pages:focus{
   min-width: 200px;
 }
 
-.titleInfo, .authorInfo, .pageInfo{
+.titleInfo, .authorInfo{
   font-size: 25px;
+}
+
+.pageInfo{
+  font-size: 18px;
+}
+
+.titleInfo{
+  text-align: center;
 }
 
 .readBtn, .deleteBook{
